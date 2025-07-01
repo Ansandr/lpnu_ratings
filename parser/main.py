@@ -8,18 +8,19 @@ def main():
 
     my_id = 1600927
 
-    start_id = my_id - (24 - 30 - 30 - 30)  * 2
-    end_id = start_id + (300)
+    #start_id = my_id - (150 * 7)
+    #end_id = my_id + (150 * 7)
+    step = 7
 
 
 
     # програма
-    #start_id = 1500331 
-    #end_id = 1500872
+    start_id = 1600248 
+    end_id = 1601977
 
 
     manager = StudentManager(url)
-    manager.fetch_students_in_range(start_id, end_id)
+    manager.fetch_students_in_range(start_id, end_id, step)
 
     exporter = JsonExporter()
     exporter.export(manager.get_all_students_data(), "students.json")

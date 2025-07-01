@@ -11,12 +11,12 @@ class StudentManager:
     def add_student(self, student):
         self.students.append(student)
 
-    def fetch_students_in_range(self, start_id, end_id):
+    def fetch_students_in_range(self, start_id, end_id, step = 1):
         """
         Завантажує дані студентів у діапазоні ID від start_id до end_id (включно).
         """
         parser = Parser()
-        for student_id in range(start_id, end_id + 1):  # end_id включительно
+        for student_id in range(start_id, end_id + 1, step):  # end_id включительно
             student = parser.parse_student_data(self.url, student_id)
             if student:
                 print(f"{student_id} +") 
